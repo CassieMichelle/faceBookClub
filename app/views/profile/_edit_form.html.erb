@@ -1,0 +1,30 @@
+
+<fieldset>
+	
+  	<h2><%= @title %></h2>
+	<%= form_for(user) do |f| %>
+	  <p>
+	    <%= f.label :first_name %>
+	    <%= f.text_field :first_name %>
+	  </p>
+	  <p>
+	    <%= f.label :last_name %>
+	    <%= f.text_field :last_name %>
+	  </p>
+	  <p>
+	    <%= f.label :city %>
+	    <%= f.text_field :city %>
+	  </p>
+	  <p>
+	    <%= f.label :state %>
+	    <%= f.text_field :state %>
+	  </p>
+	  <p>
+	  	<%= f.label :gender %>
+	  	<%= f.radio_button(:gender, 'Male')%>Male
+	  	<%= f.radio_button(:gender, 'Female')%>Female
+	  </p>
+	  <p><%= f.submit "Submit" %></p>
+	<% end %>
+
+</fieldset>

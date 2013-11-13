@@ -1,0 +1,27 @@
+
+<h1>Listing Friends</h1>
+
+<table>
+	<thead>
+		<td>Screen_Name</td>
+		<td>ID</td>
+		<td>Email</td>
+		<td>Friend</td>
+
+	</thead>
+	<tbody>
+	
+	<% @users.each do |f| %>
+		<% unless f.id == @user.id %>
+		<tr>
+		<td><%= f.screen_name %></td>
+		<td><%= f.id %></td>
+		<td><%= f.email %></td>
+		<td><%= link_to "Send Friend Request", "/friendships/#{@user.id}/#{f.id}" %></td>
+	    </tr>
+	    <% end %>
+
+	<% end %>
+    </tbody>
+	
+</table>

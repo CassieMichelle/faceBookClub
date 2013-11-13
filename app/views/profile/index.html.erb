@@ -1,0 +1,46 @@
+<h1><%= @screen_name %></h1>
+<div class = 'links'>
+	<%= link_to "Sign Out", destroy_user_session_path, method: :delete %> 
+	<%= link_to "Edit Login", edit_user_registration_path %> 
+	<%= link_to "Edit Specs", user_path %>
+</div>
+
+<div class= 'display_specs'>
+	<%= @user.first_name %> <%= @user.last_name %>
+	<%= @user.gender %> 
+	<%= @user.city %> <%= @user.state %>
+</div>
+
+
+
+<%= text_field_tag 'search_input' %>
+
+
+<h2>Friends</h2>
+<ul>
+  <% for friendship in @user.friendships %>
+    <li>
+      <%= friendship.friend_id %>
+      <%= link_to "remove", "/friendships/#{friendship.id}/delete" %>
+    </li>
+  <% end %>
+</ul>
+
+
+<table class = "users_table">
+	<thead>
+		<td>Screen_Name</td>
+		<td>ID</td>
+		<td>Email</td>
+		<td>Friend</td>
+
+	</thead>
+	<tbody id='friend-table'>
+
+    </tbody>
+	
+</table>
+
+
+
+
