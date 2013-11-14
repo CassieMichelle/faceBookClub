@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, :through => :friendships
+  has_and_belongs_to_many :books
+  has_and_belongs_to_many :groups
+  has_many :forums, :through => :groups
+  belongs_to :post
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

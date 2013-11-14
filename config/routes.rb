@@ -5,8 +5,11 @@ BookClubApp::Application.routes.draw do
   put 'profile/:id/edit', to: 'profile#update', as: 'profile_edit'
   post '/profile/search', to: 'profile#search', as: 'friend'
   ## want to show "profile/:screen_name" in place of "ads#show
-  get '/friendships/:user_id/:friend_id' => 'friendships#create'
-  delete 'friendships/:id/delete' => 'friendships#destroy'
+  post '/groups/search', to: 'groups#search'
+  get '/friendships/create' => 'friendships#create'
+  get '/groups/index' => 'groups#index', as: 'create_group'
+  get '/groups/create' => 'groups#create'
+  get 'friendships/delete/:friend_id' => 'friendships#destroy_user'
   devise_for :users, :controllers => { :sessions => 'sessions' }
 
   root :to => 'welcome#index', as: 'welcome'

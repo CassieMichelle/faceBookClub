@@ -1,13 +1,23 @@
+	
+
 
 
  	<div class="container">
+		<p>"There is no friend as loyal as a book" -Ernest Hemingway</p>
+ 		
+ 		<p>I invite you to meet a mutual friend</p>
+
+ 		<h1>face-BookClub</h1>
 		
 		<% if notice || alert %>
 			<p class="notice"><%= notice %></p>
 			<p class="alert"><%= alert %></p>
 		<% end %>
-		<%= link_to "sign up", new_user_registration_path %>
+		
+		<div> <%= link_to "sign up", new_user_registration_path %> </div>
 	    
-	    <%= link_to "sign_in", new_user_session_path %>
+	    <div><%= link_to "sign in", new_user_session_path %></div>
+
+	   
 
 	</div>
