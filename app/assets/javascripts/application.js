@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 
+var bookId;
 function createBookRoom(title) {
 
 	$.ajax({
@@ -22,8 +23,44 @@ function createBookRoom(title) {
 		data: {title: title},
 		method: 'post'
 		})
-	.done();
+	.success(function(data) {
+		bookId = data.id;
+		console.log(bookId);
+	});
 
+}
+
+function searchFriends(name){
+
+	$.ajax({
+		url: '/books/search',
+		dataType: 'json',
+		data: {name: name},
+		method: 'post'
+		})
+	.done(function(data) {
+		console.log(data);
+		$('#group-search-table').empty();
+		$(data).each(function(ind, person) {
+		$('#group-search-table').append($('<li data-id="' +person['id']+'">'+ person['first_name'] +" "+person['last_name'] +'</li>'));
+		});
+		$('#group-search-table li').on('click', function(){
+			var friend_id = $(this).data("id");
+			console.log(friend_id);
+			$.ajax({
+						url: '/books/add',
+						dataType: 'json',
+						data: { user_id: friend_id, book_id: bookId },
+						method: 'get',
+						// complete: location.reload()
+						})
+			.success(function(){
+				console.log('success');
+				$('#group-search-table').empty();
+			});
+		});
+
+	});
 }
 
 function searchUsers(name){
@@ -48,48 +85,38 @@ function searchUsers(name){
 				method: 'get',
 				complete: location.reload()
 				})
-      .done();
+      .success();
+
   });
 
 	});
 }
 
 
-function searchFriends(name){
 
-	$.ajax({
-		url: '/books/search',
-		dataType: 'json',
-		data: {name: name},
-		method: 'post'
-		})
-	.done(function(data) {
-		$('#group-search-table').empty();
-		$(data).each(function(ind, person){
-			$('#group-search-table').append($('<li data-id="' +person['id']+'">'+ person['first_name'] +" "+person['last_name'] +'</li>'));
-		});
-		$('#group-search-table li').on('click', function(){
-			var friend_id = $(this).data("id");
-			$.ajax({
-						url: '/books/add',
-						dataType: 'json',
-						data: { user_id: friend_id},
-						method: 'get',
-						complete: location.reload()
-						})
-			.done();
-		});
 
-	});
-}
 
 $(function(){
-	$(".submit").click(function() {
+	$(".submit").click(function(e) {
+		e.preventDefault();
 		var title = $('#submit_title').val();
 		createBookRoom(title);
-
-
+		$('#submit_title').empty();
 	});
+	
+
+	$('#search_input').keyup(
+		function() {
+		var text = $('#search_input').val();
+			if (text.length === 0) {
+				$('#group-search-table').empty();
+			} else {
+				searchFriends(text);
+
+			}
+
+		});
+
 
 	$('#search_input').keyup(
 		function() {
@@ -102,16 +129,7 @@ $(function(){
 	
 		});
 	
-	$('#search_input').keyup(function() {
-		var text = $('#search_input').val();
-			if (text.length === 0) {
-				$('#group-search-table').empty();
-			} else {
-				searchFriends(text);
-
-			}
-
-		});
+	
 
 	
 });

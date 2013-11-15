@@ -6,7 +6,7 @@ BookClubApp::Application.routes.draw do
   post '/profile/search', to: 'profile#search', as: 'friend'
   ## want to show "profile/:screen_name" in place of "ads#show
   post '/books/search', to: 'books#search'
-  get '/friendships/create' => 'friendships#create'
+  get '/friendships/create', to: 'friendships#create'
   get '/books/index' => 'books#index', as: 'books'
   post '/books/index' => 'books#index'
   get '/books/new' => 'books#new', as: 'new_book'

@@ -9,11 +9,13 @@ class BooksController < ApplicationController
 	def create
 		
 		new_book = Book.create(:title => params[:title])
+		render json: new_book 
 		
 	end
 
 	def add
 		user = User.find(params[:user_id])
+		new_book = Book.find(params[:book_id])
 		current_user.books << new_book
 	   	
 	    user.books << new_book
@@ -34,4 +36,8 @@ class BooksController < ApplicationController
 	     render json: users.to_json
 	end
 	
+
+
+private
+
 end

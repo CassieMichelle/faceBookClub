@@ -23,7 +23,7 @@ fieldset {
 }
 
 .button {
-	display: inline-block;
+	float: right;
 	color: black;
 	width: 200px;
 	height: 100px;
