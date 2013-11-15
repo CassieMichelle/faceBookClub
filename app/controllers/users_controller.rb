@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   helper :profile
-  before_filter :protect
+  # before_filter :protect
   
 
   def index

@@ -11,8 +11,10 @@ BookClubApp::Application.routes.draw do
   post '/books/index' => 'books#index'
   get '/books/new' => 'books#new', as: 'new_book'
   post '/books/create' => 'books#create'
-  get '/books/add' => 'books#add'
+  post '/books/add' => 'books#add'
   get 'friendships/delete/:friend_id' => 'friendships#destroy_user'
+  get '/forum/:title' => 'forums#index', :as => 'forum', :constraints => ForumsConstraint
+  # get '/forum' => 'forums#index'
   devise_for :users, :controllers => { :sessions => 'sessions' }
 
   root :to => 'welcome#index', as: 'welcome'

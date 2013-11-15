@@ -18,25 +18,13 @@
 		
 	</div>
 
-	<div class = 'display_friends'>
+	<!-- <div class = 'display_friends'>
 		<h3> Display Book Club Members </h3>
-			<table>
-			<thead>
+		<ul id='group-search-display'>
 
-			</thead>
-			<tbody id='group-table'>
-				 <% for user in @book.users %>
-				   <tr>
-				    <td>
-				      <%= user.first_name %>
-				    
-				    </td>
-				   </tr>
-				  <% end %>
-
-		    </tbody>
-			
-		</table>
-	</div> 
-	<button class = 'button'> Finished Making Group </button> 
+		</ul> -->
+	 <div class = "link"> <%= link_to "Finish Creating this Book Club", profile_path(current_user.screen_name) %></div>
+		
+		 
+	</div>
 </fieldset>

@@ -16,10 +16,11 @@ class BooksController < ApplicationController
 	def add
 		user = User.find(params[:user_id])
 		new_book = Book.find(params[:book_id])
-		current_user.books << new_book
+		check1 = current_user.books << new_book
 	   	
-	    user.books << new_book
-	    redirect_to books_path
+	    check2 = user.books << new_book
+
+	    render json: true
 
 	end
 

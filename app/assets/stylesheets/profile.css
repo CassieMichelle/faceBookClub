@@ -15,6 +15,15 @@
 
 }
 
+.display_books {
+	float: right;
+	margin: 10px;
+}
+.display_friends {
+	float: left;
+	margin: 10px;
+}
+
 p {
 	text-align: center;
 	margin: 0;
@@ -27,6 +36,13 @@ p {
 
 .profile_title {
 	border: 1px solid black;
+}
+.friend-search-table {
+	border: 1px solid black;
+	width: auto;
+	max-height: 200px;
+	overflow-y: scroll;
+
 }
 
 .links {

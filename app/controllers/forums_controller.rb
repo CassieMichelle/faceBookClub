@@ -1,6 +1,7 @@
-class ForumsController < ActiveRecord::Migration
-
+class ForumsController < ApplicationController
+	
 	def index
+		forum = Forum.create
 	end
 
 end

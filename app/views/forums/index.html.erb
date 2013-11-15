@@ -1,0 +1,27 @@
+    <div class = 'header'>
+  <div class = 'links'>
+     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> 
+     <%= link_to "Edit Login", edit_user_registration_path %> 
+     <%= link_to "Home Profile", profile_path(current_user.screen_name) %> 
+    
+     
+  </div>
+</div>
+
+<div class='profile_title'>
+  <h1> Book Club </h1>
+
+</div>
+
+    <div id="container">
+
+
+      <div id="unfinished">
+        <input type="text" id="new-post-field"><button id="add-item" >Add Comment</button>
+        <hr>
+        <ol id="post-items"></ol>
+      </div>
+
+      <hr>
+    </div>
+     

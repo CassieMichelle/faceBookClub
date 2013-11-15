@@ -1,0 +1,113 @@
+
+
+body {
+  font-family: 'Poiret One', cursive;
+}
+
+#container {
+  width:1000px;
+  margin:auto;
+}
+
+p {
+  margin:0;
+}
+
+#new-post-field {
+  padding:10px;
+  border: 1px solid black;
+  width:789px;
+  margin:0 0 0 45px;
+}
+
+#add-item {
+  padding:10px 20px 10px 20px;
+}
+
+.display_specs {
+  
+  font-size: 25px;
+  text-align: center;
+  display: block;
+  font-family: 'Poiret One', cursive;
+  margin: 0;
+}
+
+.header {
+  color: white;
+  background-color: black;
+  margin-top: 0;
+  padding-top: 0;
+
+}
+
+p {
+  text-align: center;
+  margin: 0;
+
+}
+
+.edit_form {
+  display: inline-block;
+}
+
+.profile_title {
+  border: 1px solid black;
+}
+
+.links {
+  /*float: right;*/
+  margin-top: 0; 
+  font-size: 25px;
+  text-align: center;
+  /*display: inline-block;*/
+  font-family: 'Poiret One', cursive;
+  text-decoration: none;
+  color: white;
+
+}
+
+#remove {
+  color: black;
+}
+
+td {
+  font-size: 25px;
+  text-align: center;
+  font-family: 'Poiret One', cursive;
+  margin: 0;
+}
+
+h3 {
+  text-decoration: none;
+  font-size: 30px;
+  font-family: 'Poiret One', cursive;
+
+}
+
+li {
+  font-size: 25px;
+  display: block;
+  font-family: 'Poiret One', cursive;
+}
+
+a {
+  font-size: 25px;
+  font-family: 'Poiret One', cursive;
+  cursor: pointer;
+  /*color: black;*/
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.button {
+  display: inline-block;
+  color: black;
+  width: 200px;
+  height: 25px;
+  font-size: 20px;
+  font-family: 'Poiret One', cursive;
+}

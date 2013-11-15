@@ -19,8 +19,8 @@ h1{
 	/*font-family: 'Josefin Slab', serif;*/
 }
 
- a {
-	font-size: 45px;
+ .header a {
+	font-size: 25px;
 	text-decoration: none;
 	text-align: center;
 	padding: 15px;

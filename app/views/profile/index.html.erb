@@ -8,7 +8,6 @@
 		 
 	</div>
 </div>
-
 <div class='profile_title'>
 	<h1><%= @screen_name %></h1>
 	<div class= 'display_specs'>
@@ -17,36 +16,49 @@
 	</div>
 </div>
 
-
-
-<div class = 'display_friend_search'>
+<feildset class = 'display_friend_search'>
 	<h3>Search For Friends</h3>
 	<%= text_field_tag 'search_input' %>
-		<ul id='friend-search-table'>
+		<ul id='friend-search-table'></ul>
+</feildset>
 
-	    </ul>
-</div>
+	<feildset class = 'display_friends'>
+		<h3><strong> Display Friends </strong></h3>
+		<table>
+			<tbody id='friend-table'>
+				 <% for friend in @user.friends %>
+				   <tr>
+				    <td>
+				      <%= link_to "remove", "/friendships/delete/#{friend.id}", id: 'remove' %>
+				      <%= friend.first_name %>
+				     </td>
+				   </tr>
+				  <% end %>
 
-<div class = 'display_friends'>
-	<h3> Display Friends </h3>
-	<table>
-		<thead>
+		    </tbody>
+			
+		</table>
+	</feildset>
 
-		</thead>
-		<tbody id='friend-table'>
-			 <% for friend in @user.friends %>
-			   <tr>
-			    <td>
-			      <%= link_to "remove", "/friendships/delete/#{friend.id}", id: 'remove' %>
-			      <%= friend.first_name %>
-			     </td>
-			   </tr>
-			  <% end %>
 
-	    </tbody>
-		
-	</table>
-</div>
+
+	<feildset class = 'display_books'>
+		<h3><strong> Display Books<strong> </h3>
+		<table>
+			<tbody id='friend-table'>
+				 <% for book in @user.books %>
+				   <tr>
+				    <td>
+				    <%= link_to "#{book.title}", forum_path(book.title) %> 
+				      <!-- <a href ="/forum/#{book.title}"><%= book.title %><a> -->
+				     </td>
+				   </tr>
+				  <% end %>
+
+		    </tbody>
+			
+		</table>
+	</fieldset>
 
 
 

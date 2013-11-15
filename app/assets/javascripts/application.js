@@ -39,31 +39,29 @@ function searchFriends(name){
 		method: 'post'
 		})
 	.done(function(data) {
-		console.log(data);
 		$('#group-search-table').empty();
 		$(data).each(function(ind, person) {
 		$('#group-search-table').append($('<li data-id="' +person['id']+'">'+ person['first_name'] +" "+person['last_name'] +'</li>'));
 		});
 		$('#group-search-table li').on('click', function(){
 			var friend_id = $(this).data("id");
-			console.log(friend_id);
 			$.ajax({
 						url: '/books/add',
 						dataType: 'json',
 						data: { user_id: friend_id, book_id: bookId },
-						method: 'get',
-						// complete: location.reload()
+						method: 'post'
 						})
-			.success(function(){
-				console.log('success');
+			.done(function(data){
 				$('#group-search-table').empty();
+				$('#group-search-display').append($('<li data-id="' +data.first_name +'</li>'));
+	
 			});
 		});
 
 	});
 }
 
-function searchUsers(name){
+function searchUsers(name) {
 
 	$.ajax({
 		url: '/profile/search',
@@ -92,16 +90,36 @@ function searchUsers(name){
 	});
 }
 
+function addComment(comment) {
+	$.ajax({
+		url: '/post/create',
+		dataType: 'json',
+		data: {comment: comment},
+		method: 'post'
+		})
+	.done(function(data) {
+		$('#post-items').append$('<li data-id="' +post['id'] +'</li>');
+      });
+}
+
+
 
 
 
 
 $(function(){
+	$(".create_group").click(function(e) {
+		$('.display_group_search').hide();
+		$('.display_friends').hide();
+	});
+
 	$(".submit").click(function(e) {
 		e.preventDefault();
 		var title = $('#submit_title').val();
 		createBookRoom(title);
-		$('#submit_title').empty();
+		$('.add_book').hide();
+		$('.display_group_search').show();
+		$('.display_friends').show();
 	});
 	
 
@@ -127,6 +145,12 @@ $(function(){
 				searchUsers(textext);
 			}
 	
+		});
+	$('#add-item').click(
+		function() {
+			var comment = $('#add-item').val();
+			addComment(comment);
+
 		});
 	
 	
