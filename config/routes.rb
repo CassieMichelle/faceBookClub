@@ -12,6 +12,7 @@ BookClubApp::Application.routes.draw do
   get '/books/new' => 'books#new', as: 'new_book'
   post '/books/create' => 'books#create'
   post '/books/add' => 'books#add'
+  post '/posts/create' => 'posts#create'
   get 'friendships/delete/:friend_id' => 'friendships#destroy_user'
   get '/forum/:title' => 'forums#index', :as => 'forum', :constraints => ForumsConstraint
   # get '/forum' => 'forums#index'

@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
-  attr_accessible :comment
-  helper :profile
+  attr_accessible :comment, :user
+  
 	
 
   # belongs_to :forum

@@ -1,15 +1,10 @@
-class Posts < ApplicationController
+class PostsController < ApplicationController
 
 	def create
-		post = Post.create(comment: params[comment])
-		render json: new_book
+		post = Post.create(params[:post])
+		render json: {post: post, user: current_user}
 	end
-	def add
-		user = User.find(params[:user_id])
-		new_book = Book.find(params[:book_id])
-		check1 = current_user.books << new_book
-	   	
-	    check2 = user.books << new_book
+	def add	
 
 	    render json: true
 

@@ -71,6 +71,7 @@ function searchUsers(name) {
 		})
 	.done(function(data) {
       $('#friend-search-table').empty();
+      console.log(data);
       $(data).each(function(ind, person) {
       $('#friend-search-table').append($('<li data-id="' +person['id']+'">'+ person['first_name'] +" "+person['last_name'] +'</li>'));
       });
@@ -91,14 +92,17 @@ function searchUsers(name) {
 }
 
 function addComment(comment) {
+	console.log(comment);
 	$.ajax({
-		url: '/post/create',
+		url: '/posts/create',
 		dataType: 'json',
-		data: {comment: comment},
+		data: {post: {comment: comment}},
 		method: 'post'
 		})
 	.done(function(data) {
-		$('#post-items').append$('<li data-id="' +post['id'] +'</li>');
+		console.log(data);
+		$('#post-items').append($('<li data-id="' +data.post.id+'">'+ data.post.comment+ '   posted by:' + data.user.screen_name+ '</li>'));
+   
       });
 }
 
@@ -148,7 +152,7 @@ $(function(){
 		});
 	$('#add-item').click(
 		function() {
-			var comment = $('#add-item').val();
+			var comment = $('#new-post-field').val();
 			addComment(comment);
 
 		});
