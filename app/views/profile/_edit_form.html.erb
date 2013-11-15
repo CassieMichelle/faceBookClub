@@ -1,5 +1,5 @@
 
-<fieldset>
+<fieldset class = 'edit_form'>
 	
   	<h2><%= @title %></h2>
 	<%= form_for(user) do |f| %>
@@ -20,11 +20,13 @@
 	    <%= f.text_field :state %>
 	  </p>
 	  <p>
+	  	<div>
 	  	<%= f.label :gender %>
 	  	<%= f.radio_button(:gender, 'Male')%>Male
 	  	<%= f.radio_button(:gender, 'Female')%>Female
+	  </div>
 	  </p>
-	  <p><%= f.submit "Submit" %></p>
+	  <p><%= f.submit "Submit", :class => "button"%></p>
 	<% end %>
 
 </fieldset>

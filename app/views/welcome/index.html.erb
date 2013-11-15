@@ -1,9 +1,12 @@
 	
-
-
+	<div class = 'header'>
+		<div> <%= link_to "sign up", new_user_registration_path %>
+	    <%= link_to "sign in", new_user_session_path %></div>
+	</div>
 
  	<div class="container">
-		<p>"There is no friend as loyal as a book" -Ernest Hemingway</p>
+		<p>"There is no friend as loyal as a book"</p>
+			<p>-Ernest Hemingway</p>
  		
  		<p>I invite you to meet a mutual friend</p>
 
@@ -14,9 +17,7 @@
 			<p class="alert"><%= alert %></p>
 		<% end %>
 		
-		<div> <%= link_to "sign up", new_user_registration_path %> </div>
-	    
-	    <div><%= link_to "sign in", new_user_session_path %></div>
+		
 
 	   
 

@@ -1,0 +1,41 @@
+<fieldset class= 'add_book_container'>
+	<div class ='add_book'>
+		<%= form_for(@book) do |f| %>
+			  <div>
+			    <%= f.label :title %>
+			    <%= f.text_field :title, id: 'submit_title' %> 
+			    <%= f.submit "Submit", :class => "button submit" %>
+			  </div>
+		<% end %>
+	</div>
+
+	<div class = 'display_group_search'>
+		<h3>Search For Friends to Add to Group</h3>
+		<%= text_field_tag 'search_input' %>
+			<ul id='group-search-table'>
+
+		    </ul>
+		
+	</div>
+
+	<div class = 'display_friends'>
+		<h3> Display Group Friends </h3>
+			<table>
+			<thead>
+
+			</thead>
+			<tbody id='group-table'>
+				 <% for user in @book.users %>
+				   <tr>
+				    <td>
+				      <%= user.first_name %>
+				    
+				    </td>
+				   </tr>
+				  <% end %>
+
+		    </tbody>
+			
+		</table>
+	</div> 
+</fieldset>

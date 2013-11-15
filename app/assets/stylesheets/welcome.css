@@ -1,10 +1,8 @@
-body {
-	
-}
+
 
 .container p { 
 	
-	font-size: 70px;
+	font-size: 50px;
 	font-family: 'Poiret One', cursive;
 	text-align: center;
 	/*font-family: 'Josefin Slab', serif;*/
@@ -16,16 +14,28 @@ h1{
 	text-align: center;
 	font-size: 100px;
 	font-family: 'Poiret One', cursive;
+	text-decoration: none;
+	margin: 100px auto;
 	/*font-family: 'Josefin Slab', serif;*/
 }
 
-.container a {
+ a {
 	font-size: 45px;
 	text-decoration: none;
 	text-align: center;
-	display: inline-block;
 	padding: 15px;
 	font-family: 'Poiret One', cursive;
+	margin-top: 0;
+	float: right;
+	color: white;
 	/*font-family: 'Josefin Slab', serif;*/
 
+}
+
+.header {
+	margin-top: 0;
+	padding-top: 0;
+	color: white;
+	background-color: black;
+	height: 50px;
 }

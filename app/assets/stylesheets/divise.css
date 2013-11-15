@@ -1,3 +1,10 @@
+
+
+
+h1 {
+	text-align: center;
+}
+
 h2 {
 	font-size: 60px;
 	text-decoration: none;
@@ -20,5 +27,14 @@ h3 {
 }
 
 .divise {
-	display: inline;
+	display: inline-block;
+}
+
+.divise_container {
+	display: inline-block;
+
+}
+.button {
+	float: left;
+	margin-top: 20px;
 }

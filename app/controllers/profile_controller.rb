@@ -6,7 +6,6 @@
 
 class ProfileController < ApplicationController
   def index
-  	  @hide_edit_links = true 
       @users = User.all
       @user =  User.find_by_screen_name(params[:screen_name])
   	  @screen_name = current_user.screen_name

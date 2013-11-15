@@ -5,15 +5,17 @@ BookClubApp::Application.routes.draw do
   put 'profile/:id/edit', to: 'profile#update', as: 'profile_edit'
   post '/profile/search', to: 'profile#search', as: 'friend'
   ## want to show "profile/:screen_name" in place of "ads#show
-  post '/groups/search', to: 'groups#search'
+  post '/books/search', to: 'books#search'
   get '/friendships/create' => 'friendships#create'
-  get '/groups/index' => 'groups#index', as: 'create_group'
-  get '/groups/create' => 'groups#create'
+  get '/books/index' => 'books#index', as: 'books'
+  post '/books/index' => 'books#index'
+  get '/books/new' => 'books#new', as: 'new_book'
+  post '/books/create' => 'books#create'
+  get '/books/add' => 'books#add'
   get 'friendships/delete/:friend_id' => 'friendships#destroy_user'
   devise_for :users, :controllers => { :sessions => 'sessions' }
 
   root :to => 'welcome#index', as: 'welcome'
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
